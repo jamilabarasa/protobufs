@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package reactions;
 
-// option go_package = "./proto/reactions";
+option go_package = "./proto/reactions";
 
 // The reactions gRPC service
 service reactionservice {
