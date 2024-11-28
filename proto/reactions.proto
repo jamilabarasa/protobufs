@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package reactions;
+package proto;;
 
-option go_package = "./proto/reactions";
+option go_package = "./proto";
 
 // The reactions gRPC service
 service reactionservice {

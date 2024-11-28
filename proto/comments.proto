@@ -1,8 +1,10 @@
 syntax = "proto3";
 
-option go_package = "./proto/comments";
+package proto;
 
-package comments;
+option go_package = "./proto";
+
+
 
 // The comments gRPC service
 service commentservice {
