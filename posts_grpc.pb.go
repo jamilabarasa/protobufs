@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: posts.proto
 
-package protobufs
+package __
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PostService_GetPost_FullMethodName = "/proto.PostService/GetPost"
+	PostService_GetPost_FullMethodName = "/protobufs.PostService/GetPost"
 )
 
 // PostServiceClient is the client API for PostService service.
@@ -108,7 +108,7 @@ func _PostService_GetPost_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PostService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.PostService",
+	ServiceName: "protobufs.PostService",
 	HandlerType: (*PostServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

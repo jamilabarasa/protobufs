@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: reactions.proto
 
-package protobufs
+package __
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Reactionservice_GetReaction_FullMethodName = "/proto.reactionservice/GetReaction"
+	Reactionservice_GetReaction_FullMethodName = "/protobufs.reactionservice/GetReaction"
 )
 
 // ReactionserviceClient is the client API for Reactionservice service.
@@ -112,7 +112,7 @@ func _Reactionservice_GetReaction_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Reactionservice_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.reactionservice",
+	ServiceName: "protobufs.reactionservice",
 	HandlerType: (*ReactionserviceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
