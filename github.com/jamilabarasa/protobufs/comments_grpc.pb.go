@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: proto/comments.proto
+// source: comments.proto
 
-package __
+package protobufs
 
 import (
 	context "context"
@@ -121,5 +121,5 @@ var Commentservice_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/comments.proto",
+	Metadata: "comments.proto",
 }
