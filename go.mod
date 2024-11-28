@@ -1,4 +1,4 @@
-module protobufs
+module github.com/jamilabarasa/protobufs
 
 go 1.23.3
 
