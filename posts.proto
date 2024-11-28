@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package posts;
+
+option go_package = "./proto/posts";
+
+// The Posts gRPC service
+service PostService {
+  rpc GetPost (PostRequest) returns (PostResponse);
+}
+
+message PostRequest {
+  string post_id = 1;
+}
+
+message PostResponse {
+  string post_id = 1;
+  string title = 2;
+  string content = 3;
+}

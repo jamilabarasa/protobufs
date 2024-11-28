@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package comments;
+
+option go_package = "./proto/comments";
+
+// The comments gRPC service
+service commentservice {
+  rpc GetComment (CommentRequest) returns (CommentResponse);
+}
+
+message CommentRequest {
+  string comment_id = 1;
+}
+
+message CommentResponse {
+  string comment_id = 1;
+  string title = 2;
+  string content = 3;
+}

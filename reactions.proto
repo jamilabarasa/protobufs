@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package reactions;
+
+option go_package = "./proto/reactions";
+
+// The reactions gRPC service
+service reactionservice {
+  rpc GetReaction (ReactionRequest) returns (ReactionResponse);
+}
+
+message ReactionRequest {
+  string reaction_id = 1;
+}
+
+message ReactionResponse {
+  string reaction_id = 1;
+  string title = 2;
+  string content = 3;
+}
