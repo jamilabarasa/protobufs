@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PostService_GetPost_FullMethodName = "/proto.PostService/GetPost"
+	PostService_GetPosts_FullMethodName = "/proto.PostService/GetPosts"
 )
 
 // PostServiceClient is the client API for PostService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PostServiceClient interface {
-	GetPost(ctx context.Context, in *PostRequest, opts ...grpc.CallOption) (*PostResponse, error)
+	GetPosts(ctx context.Context, in *GetPostsRequest, opts ...grpc.CallOption) (*GetPostsResponse, error)
 }
 
 type postServiceClient struct {
@@ -37,10 +37,10 @@ func NewPostServiceClient(cc grpc.ClientConnInterface) PostServiceClient {
 	return &postServiceClient{cc}
 }
 
-func (c *postServiceClient) GetPost(ctx context.Context, in *PostRequest, opts ...grpc.CallOption) (*PostResponse, error) {
+func (c *postServiceClient) GetPosts(ctx context.Context, in *GetPostsRequest, opts ...grpc.CallOption) (*GetPostsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PostResponse)
-	err := c.cc.Invoke(ctx, PostService_GetPost_FullMethodName, in, out, cOpts...)
+	out := new(GetPostsResponse)
+	err := c.cc.Invoke(ctx, PostService_GetPosts_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *postServiceClient) GetPost(ctx context.Context, in *PostRequest, opts .
 // All implementations must embed UnimplementedPostServiceServer
 // for forward compatibility.
 type PostServiceServer interface {
-	GetPost(context.Context, *PostRequest) (*PostResponse, error)
+	GetPosts(context.Context, *GetPostsRequest) (*GetPostsResponse, error)
 	mustEmbedUnimplementedPostServiceServer()
 }
 
@@ -62,8 +62,8 @@ type PostServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPostServiceServer struct{}
 
-func (UnimplementedPostServiceServer) GetPost(context.Context, *PostRequest) (*PostResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPost not implemented")
+func (UnimplementedPostServiceServer) GetPosts(context.Context, *GetPostsRequest) (*GetPostsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPosts not implemented")
 }
 func (UnimplementedPostServiceServer) mustEmbedUnimplementedPostServiceServer() {}
 func (UnimplementedPostServiceServer) testEmbeddedByValue()                     {}
@@ -86,20 +86,20 @@ func RegisterPostServiceServer(s grpc.ServiceRegistrar, srv PostServiceServer) {
 	s.RegisterService(&PostService_ServiceDesc, srv)
 }
 
-func _PostService_GetPost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PostRequest)
+func _PostService_GetPosts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPostsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PostServiceServer).GetPost(ctx, in)
+		return srv.(PostServiceServer).GetPosts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PostService_GetPost_FullMethodName,
+		FullMethod: PostService_GetPosts_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PostServiceServer).GetPost(ctx, req.(*PostRequest))
+		return srv.(PostServiceServer).GetPosts(ctx, req.(*GetPostsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -112,8 +112,8 @@ var PostService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*PostServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetPost",
-			Handler:    _PostService_GetPost_Handler,
+			MethodName: "GetPosts",
+			Handler:    _PostService_GetPosts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
